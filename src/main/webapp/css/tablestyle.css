@@ -1,0 +1,33 @@
+tr,th,td
+{
+    text-align: center;
+    vertical-align:middle;
+    font-size: 12px;
+}
+.tablecontainer tr{
+    height: 55px;
+}
+th{
+    font-weight: 400;
+}
+thead
+{
+    background-color: rgb(8,50,100);
+    color: #ffffff;
+}
+.shortstyle
+{
+    width: 4%;
+}
+.middlestyle
+{
+    width: 5%;
+}
+.longstyle
+{
+    width: 13%;
+}
+.timetablestyle
+{
+    width: 13%;
+}

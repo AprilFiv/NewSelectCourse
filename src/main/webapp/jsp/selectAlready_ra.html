@@ -1,0 +1,183 @@
+<!--已选课程下的资源分配页-->
+<%@ page contentType="text/html; charset=UTF-8" %>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>厦大选课系统</title>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/tablestyle.css"/>
+</head>
+<body>
+    <div class="wrapper">
+        <!--div class="header"></div-->
+        <jsp:include page="header.jsp"/>
+        <div class="maincontainer">
+            <div class="subnav">
+                <ul>
+                    <li><a href="selectAlready_main.jsp">已选课程</a></li>
+                    <li><a href="selectAlready_lose.jsp">落选课程</a></li>
+                    <li><a href="selectAlready_ra.html" class="navactive">资源分配</a></li>
+                </ul>
+                <div class="triangle"></div>
+            </div>
+            <div class="tablecontainer">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th class="shortstyle" >修读性质</th>
+                        <th>课程类别</th>
+                        <th class="shortstyle">课程性质</th>
+                        <th>课程代码</th>
+                        <th>课程名称</th>
+                        <th>学分</th>
+                        <th>校区</th>
+                        <th class="longstyle">上课时间</th>
+                        <th>上课地点</th>
+                        <th>上课教师</th>
+                        <th class="shortstyle">选课状态</th>
+                        <th class="shortstyle">是否重修</th>
+                        <th class="middlestyle">查看资源排位</th>
+                        <th class="longstyle">资源分配</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr id="line1">
+                        <td>主修</td>
+                        <td>学科或专业方向性课</td>
+                        <td>必修</td>
+                        <td>130140020034</td>
+                        <td>需求分析</td>
+                        <td>3</td>
+                        <td>思明</td>
+                        <td>星期一 第3-4节 1-16周 星期一 第3-4节 1-16周</td>
+                        <td>海韵教学楼201</td>
+                        <td>杨律青</td>
+                        <td>预选</td>
+                        <td>否</td>
+                        <td><button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#myModal">查看</button></td>
+                        <td>
+                            <form action="">
+                                <div class="input-group spinner">
+                                    <input type="text" class="inputstyle" value="0">
+                                    <div class="input-group-btn-vertical">
+                                        <button class="btn btn-default" type="button"></button>
+                                        <button class="btn btn-default" type="button"></button>
+                                    </div>
+                                    <button type="submit" class="btn btn-default btn-xs submitstyle">提交</button>
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr id="line2">
+                        <td>主修</td>
+                        <td>学科或专业方向性课</td>
+                        <td>必修</td>
+                        <td>130140020034</td>
+                        <td>需求分析</td>
+                        <td>3</td>
+                        <td>思明</td>
+                        <td>星期一 第3-4节 1-16周 星期一 第3-4节 1-16周</td>
+                        <td>海韵教学楼201</td>
+                        <td>杨律青</td>
+                        <td>预选</td>
+                        <td>否</td>
+                        <td><button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#myModal">查看</button></td>
+                        <td>
+                            <form action="">
+                                <div class="input-group spinner">
+                                    <input type="text" class="inputstyle" value="0">
+                                    <div class="input-group-btn-vertical">
+                                        <button class="btn btn-default" type="button"></button>
+                                        <button class="btn btn-default" type="button"></button>
+                                    </div>
+                                    <button type="submit" class="btn btn-default btn-xs submitstyle">提交</button>
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- 模态框（Modal） -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <p>课程名称：<span>需求分析</span></p>
+                            <p>上课教师：<span>XXX</span></p>
+                            <p>上课时间：<span>XXXXXXXXXXXX</span></p>
+                            <p>上课地点：<span>XXXXXXXXXXXX</span></p>
+                        </div>
+                        <div class="modal-body">
+                            <table class="table table-condensed">
+                                <thead>
+                                <tr>
+                                    <th>资源排位</th>
+                                    <th>资源分配数</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>10</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>9</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>8</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>6</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>5</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>4</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal -->
+            </div>
+            <div class="footfather">
+                <form class="footatten">
+                    共<span id="sum"></span>条记录 每页20条 当前第<span id="cur"></span>页/共<span id="total"></span>页
+                    <button type="button" class="btn btn-default">首页</button>
+                    <button type="button" class="btn btn-default">上一页</button>
+                    <button type="button" class="btn btn-default">下一页</button>
+                    <!--只要给按钮加上这个属性，就是禁用的了-->
+                    <button type="button" class="btn btn-default" disabled="disabled">下一页</button>
+                    <button type="button" class="btn btn-default">尾页</button>
+                    直接跳到第<input type="text" class="form-control">页 <button type="submit" class="btn btn-default">跳转</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    (function ($) {
+        $('.spinner .btn:first-of-type').on('click', function() {
+            $('.spinner input').val( parseInt($('.spinner input').val(), 10) - 1);
+        });
+        $('.spinner .btn:last-of-type').on('click', function() {
+            $('.spinner input').val( parseInt($('.spinner input').val(), 10) +1);
+        });
+    })(jQuery);
+</script>
+</html>

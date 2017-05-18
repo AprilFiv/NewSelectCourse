@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="NewSelectCourse"
+  id="myeclipse.1491562714967"
+  context-root="/NewSelectCourse"
+  j2ee-spec="6.0"
+  archive="NewSelectCourse.war">
+  <attributes>
+    <attribute name="webrootdir" value="src/main/webapp" />
+  </attributes>
+</project-module>
+

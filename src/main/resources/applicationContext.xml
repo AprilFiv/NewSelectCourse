@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  - Application context definition for JPetStore's business layer.
+  - Contains bean references to the transaction manager and to the DAOs in
+  - dataAccessContext-local/jta.xml (see web.xml's "contextConfigLocation").
+  -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:aop="http://www.springframework.org/schema/aop"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xmlns:task="http://www.springframework.org/schema/task" 
+		xsi:schemaLocation="
+			http://www.springframework.org/schema/beans 
+			http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/aop
+			http://www.springframework.org/schema/aop/spring-aop.xsd
+			http://www.springframework.org/schema/context 
+			http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/tx
+		    http://www.springframework.org/schema/tx/spring-tx.xsd
+		    http://www.springframework.org/schema/task  
+http://www.springframework.org/schema/task/spring-task.xsd  ">
+
+<!-- 开启定时任务 -->  
+    <task:annotation-driven /> 
+		<!--自动扫描BEAN -->  
+		<context:component-scan  base-package="com.xmu"></context:component-scan>  
+		<!-- 开启注解配置 -->  
+		<context:annotation-config></context:annotation-config>  
+		<!-- 开启AOP -->  
+		<aop:aspectj-autoproxy></aop:aspectj-autoproxy>  
+	    <!-- 引入外部文件 -->
+        <context:property-placeholder location="classpath:jdbc.properties"/>   
+		<!-- 配置连接池 --> 
+		   <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+				<property name="driverClass" value="${jdbc.driverClass}"	/>	   
+				<property name="jdbcUrl" value="${jdbc.url}"	/>	 
+				<property name="user" value="${jdbc.username}"	/>	 
+				<property name="password" value="${jdbc.password}"	/>	 
+		   </bean>
+		 <!-- 配置HIBERNATE -->
+		 <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		 <!-- 注入连接池 -->
+			<property name="dataSource" ref="dataSource"></property>	 
+		 	<!-- 配置hibernate属性 -->
+		 	<property name="hibernateProperties">
+		 		<props>
+		 			<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+		 			<prop key="hibernate.show_sql">true</prop>
+		 			<prop key="hibernate.format_sql">true</prop>
+		 			<prop key="hibernate.hbm2ddl.auto">update</prop>
+		 		
+		 		</props>
+		 	</property>
+	
+		 	<property name="packagesToScan">  
+            <list>  
+                <value>com.xmu.*</value>  
+            </list>  
+      	  </property>  
+
+		 </bean>
+
+		<!-- 配置事务管理 -->
+		<bean id="transationManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		<!-- 开启注解实务 -->
+		<tx:annotation-driven transaction-manager="transationManager" proxy-target-class="true"/>	
+		
+		
+	
+</beans>

@@ -1,0 +1,73 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>厦大选课系统</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="css/loginstyle.css"/>
+</head>
+<body>
+<div class="wrapper">
+    <div class="headerwrapper">
+        <div class="headerbar">
+            <div class="logo"><img src="image/clogo.png"></div>
+        </div>
+    </div>
+    <div class="logincontainer">
+        <div class="loginbar">
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label for="username" class="control-label">用户名</label>
+                    <input type="text" class="form-control" id="username" onkeyup="validate()" placeholder="请输入用户名">
+                </div>
+                <div class="form-group">
+                    <label for="password" class="control-label">密码</label>
+                    <input type="password" class="form-control" id="password" onkeyup="validate()" placeholder="请输入密码">
+                </div>
+                <div class="form-group verinput">
+                    <label for="vertify" class="control-label">验证码</label>
+                    <input type="text" class="form-control" id="vertify" onkeyup="validate()">
+                    <div class="verimage"><img alt="验证码"></div>
+                </div>
+                <div id="atteninfo"><p></p></div>
+                <div class="checkbox checkstyle">
+                    <label>
+                        <input type="checkbox"><span>自动登录</span>
+                    </label>
+                </div><br>
+                <div class="btnstyle">
+                    <button type="reset" class="btn btn-default">重置</button>
+                    <button type="submit" class="btn btn-default positionstyle">登录</button>
+                </div>
+
+            </form>
+        </div>
+        <div class="scinfo">
+            <h4>选课须知</h4><hr>
+            <p>1. 选课前请务必仔细阅读选课规则和选课使用帮助。</p>
+            <p>2. 本选课系统使用统一身份认证的用户名和密码,密码规则详见http://i.xmu.edu.cn/的登录密码公告（与学工系统的登录密码一致）。
+                如果密码不对，请带学生证到一卡通中心重置密码；</p>
+            <p>3. 选课结束后，请点击选课界面右上方的“退出登录”或者关闭所有浏览器窗口，以免后面的同学篡改您的选课结果。</p>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    function validate() {
+        var username = document.getElementById("username").value;
+        var pw = document.getElementById("password").value;
+        var ver =document.getElementById("vertify").value;
+        if(username == "" || username == null) {
+            document.getElementById("atteninfo").innerHTML="<font color='#FF8C69'>用户名不能为空</font>";
+            document.getElementById("submit").disabled = false;
+        }
+        if(pw== "" || pw == null) {
+            document.getElementById("atteninfo").innerHTML="<font color='#FF8C69'>密码不能为空</font>";
+            document.getElementById("submit").disabled = false;
+        }
+        if(ver == "" || ver == null) {
+            document.getElementById("atteninfo").innerHTML="<font color='#FF8C69'>验证码不能为空</font>";
+            document.getElementById("submit").disabled = false;
+        }
+    }
+</script>
+</html>
